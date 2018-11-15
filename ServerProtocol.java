@@ -4,7 +4,7 @@ public class ServerProtocol {
     public enum EnumState{
         waiting, questionOne
     }
-
+//
     private static EnumState state = EnumState.waiting;
     private String returnMessage;
 
