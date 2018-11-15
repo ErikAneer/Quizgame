@@ -1,4 +1,4 @@
-package QuizgameGroupTask;
+
 
 public class ServerProtocol {
 

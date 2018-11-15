@@ -1,4 +1,4 @@
-package QuizgameGroupTask;
+
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -17,11 +17,11 @@ public class ServerMain {
                                 Socket socket = serverSocket.accept();
                                 System.out.println("Connection1");
                                 
-                                Player playerOne = new Player(x, socket);
+//                                Player playerOne = new Player(x, socket);
                                 Server server = new Server(socket);
                                 
                                 Socket socket1 = serverSocket.accept();
-                                Player playerOne = new Player(x, socket1);
+//                                Player playerOne = new Player(x, socket1);
                                 System.out.println("Connection 2");
                                 
                                 
