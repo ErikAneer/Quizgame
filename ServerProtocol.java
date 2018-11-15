@@ -1,5 +1,5 @@
 public class ServerProtocol {
-
+//Testa att ändra.
 
     public enum EnumState{
         waiting, questionOne
