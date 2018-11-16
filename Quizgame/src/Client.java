@@ -1,4 +1,4 @@
-package quizgame;
+
 
 
 import java.io.BufferedReader;
