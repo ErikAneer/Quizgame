@@ -1,15 +1,19 @@
 
-
-
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 public class Player {
             
         private String playerName;
         private boolean isAvailable = true;
         private int points;
+        private PrintWriter output;
+        private BufferedReader in;
         
-        Player(String playerName)  {
+        Player(String playerName, PrintWriter output, BufferedReader in)  {
                 this.playerName = playerName;
+                this.output = output;
+                this.in = in;
         }
         
         public void setPoints(int pointsToAdd) {
@@ -22,5 +26,13 @@ public class Player {
         
         public void setToNotAvailable() {
                 isAvailable = false;
+        }
+        
+        public PrintWriter getOutputStream() {
+                return output;
+        }
+        
+        public BufferedReader getInputStream() {
+                return in;
         }
 }
