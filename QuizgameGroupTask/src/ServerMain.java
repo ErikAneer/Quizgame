@@ -1,5 +1,4 @@
 
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,11 +16,9 @@ public class ServerMain {
                                 Socket socket = serverSocket.accept();
                                 System.out.println("Connection1");
                                 
-//                                Player playerOne = new Player(x, socket);
                                 Server server = new Server(socket);
+                                server.start();
                                 
-                                Socket socket1 = serverSocket.accept();
-//                                Player playerOne = new Player(x, socket1);
                                 System.out.println("Connection 2");
                                 
                                 
