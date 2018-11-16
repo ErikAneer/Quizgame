@@ -1,3 +1,5 @@
+package quizgame;
+
 
 
 public class ServerProtocol {
