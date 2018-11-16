@@ -22,7 +22,7 @@ public class Server extends Thread {
                     public void run() {
 
                     try (PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
-                              BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));) 
+                              BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));)
                     {
                               Scanner scan = new Scanner(System.in);
 
