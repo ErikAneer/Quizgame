@@ -11,12 +11,17 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class Server extends Thread {
-
-          private ServerProtocol serverProtocol = new ServerProtocol();
+            
+          private ActivePlayers activePlayers;
+          private ServerProtocol serverProtocol = new ServerProtocol(activePlayers);
           private Socket socket;
-
-          public Server(Socket socket){
+          private Player currentPlayer;
+          
+       
+          public Server(Socket socket, ActivePlayers activePlayers){
                     this.socket = socket;
+                    this.activePlayers = activePlayers;
+                    
                     }
                     @Override
                     public void run() {
@@ -25,7 +30,8 @@ public class Server extends Thread {
                               BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));) 
                     {
                               Scanner scan = new Scanner(System.in);
-
+                              
+                              
                               String messageFromClient = null;
                               String messageFromServer = null;
 
