@@ -1,0 +1,36 @@
+.label {
+    
+    
+-fx-padding: 30;
+    
+
+}
+
+.textfield {
+    
+    
+-fx-padding: 30;
+
+}
+
+.button {
+    
+-fx-pref-height: 50px;
+    
+-fx-pref-width: 100px;
+    
+-fx-background-color: #CCFF99;
+
+}
+
+#rootcolor {
+    
+-fx-background-color: white;
+
+}
+
+.textfield {
+    
+-fx-font-family: arial;
+
+}
