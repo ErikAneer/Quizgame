@@ -1,30 +1,38 @@
 
-
-
-
 public class ServerProtocol {
 
 
-    public enum EnumState{
-        waiting, questionOne
+    public enum EnumState {
+        waitingForOtherPlayer, otherPlayerFound, chooseQuestionCategory, 
+        StartRound, answerQuestion, betweenRounds, gameFinished, askAnotherGame,
+        chooseNewOpponent, Quit;
     }
 //
-    private EnumState state = EnumState.waiting;
+    private EnumState state = EnumState.waitingForOtherPlayer;
     private String returnMessage;
+    private Player player;
+    private ActivePlayers activePlayers;
+    
+    ServerProtocol(ActivePlayers activePlayers) {
+        this.activePlayers = activePlayers;
+    }
+//    private Player threadPlayer;
 
     public String handleInput(String answer){
+        
+         
 
-        if(state == EnumState.waiting && answer == null){
-            state = EnumState.questionOne;
+        if(state == EnumState.waitingForOtherPlayer && answer == null){
+            state = EnumState.answerQuestion;
             returnMessage = "Varmt välkommen! För att starta, skriv: q!";
 
         }
-        else if(state == EnumState.questionOne){
+        else if(state == EnumState.answerQuestion){
             if(answer.equalsIgnoreCase("q")) {
                 returnMessage = "Vilken färg gillar Erik? grön, röd, svart, gul";
             }
             else if(answer.equalsIgnoreCase("grön")){
-                state = EnumState.waiting;
+                state = EnumState.waitingForOtherPlayer;
                 returnMessage = "Rätt svar";
             }
             else
@@ -33,7 +41,18 @@ public class ServerProtocol {
             return returnMessage;
     }
 
-
+    public void searchOpponent (Player player2) {
+                   for (Player p : activePlayers.getPlayerList()) {
+                                if (p.getAvailability()) {
+                                        p.setToNotAvailable();
+                                        Game game = new Game(p, player2);
+                                        break;
+                                }
+                                else {
+                                        activePlayers.addPlayer(player2); 
+                                } 
+                   }
+        }
 
 
 }
