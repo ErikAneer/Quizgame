@@ -13,9 +13,6 @@ public class ServerProtocol {
     private Player player;
     private ActivePlayers activePlayers;
     
-    ServerProtocol(ActivePlayers activePlayers) {
-        this.activePlayers = activePlayers;
-    }
 //    private Player threadPlayer;
 
     public String handleInput(String answer){

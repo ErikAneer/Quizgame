@@ -11,7 +11,6 @@ public class ServerMain {
         
             System.out.println("Server up and running.");
             ServerSocket serverSocket = new ServerSocket(55555);
-            ActivePlayers activePlayers = new ActivePlayers();
             
             while (true) {
                 
@@ -19,12 +18,16 @@ public class ServerMain {
                                 Socket socket = serverSocket.accept();
                                 System.out.println("Connection1");
                                 
-                                Server server = new Server(socket, activePlayers);
+                                Server server = new Server(socket);
                                 server.start();
                                 
-                                System.out.println("Connection 2");
+                                Socket socket2 = serverSocket.accept();
+                                System.out.println("Connection2");
                                 
+                                Server server2 = new Server(socket2);
+                                server2.start();
                                 
+                                Game game = new Game();
 
                      }catch (IOException e){
                                 e.getMessage();

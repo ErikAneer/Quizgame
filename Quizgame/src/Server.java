@@ -12,15 +12,12 @@ import java.util.Scanner;
 
 public class Server extends Thread {
             
-          private ActivePlayers activePlayers;
-          private ServerProtocol serverProtocol = new ServerProtocol(activePlayers);
+          private ServerProtocol serverProtocol = new ServerProtocol();
           private Socket socket;
-          private Player currentPlayer;
           
        
-          public Server(Socket socket, ActivePlayers activePlayers){
+          public Server(Socket socket){
                     this.socket = socket;
-                    this.activePlayers = activePlayers;
                     
                     }
                     @Override
