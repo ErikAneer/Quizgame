@@ -11,6 +11,7 @@ public class Player {
         private int points;
         private PrintWriter output;
         private BufferedReader in;
+        private ServerProtocol playerThread;
         
         Player(String playerName, PrintWriter output, BufferedReader in)  {
                 this.playerName = playerName;
@@ -20,6 +21,10 @@ public class Player {
         
         public void setPoints(int pointsToAdd) {
                 points = points + pointsToAdd;
+        }
+        
+        public boolean getAvailability() {
+                return isAvailable;
         }
         
         public void setToAvailable() {
