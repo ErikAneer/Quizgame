@@ -45,7 +45,7 @@ public class ServerProtocol {
                    for (Player p : activePlayers.getPlayerList()) {
                                 if (p.getAvailability()) {
                                         p.setToNotAvailable();
-                                        Game game = new Game(p, player2);
+                                        Game game = new Game();
                                         break;
                                 }
                                 else {

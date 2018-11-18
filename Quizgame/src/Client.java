@@ -1,10 +1,7 @@
 
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
@@ -18,29 +15,27 @@ public class Client {
             
        
              try (Socket socket = new Socket(ipAdress, 55555);
-
-            PrintWriter writer = new PrintWriter(socket.getOutputStream(), true);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                  ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
+                  ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
             ) {
-
             Scanner scan = new Scanner(System.in);
-
             String messageFromClient;
             String messageFromServer;
 
-            while(true){
 
-                messageFromServer = reader.readLine();
+            while(true){
+                messageFromServer = (String) objectInputStream.readObject();
                 System.out.println(messageFromServer);
 
                 messageFromClient = scan.nextLine();
-                writer.println(messageFromClient);
-
+                objectOutputStream.writeObject(messageFromClient);
             }
 
         }catch(IOException e){
             System.out.println("Error: " + e.getMessage());
-        }
+        }catch (ClassNotFoundException e){
+                 e.getMessage();
+             }
 
 
 
