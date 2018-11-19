@@ -11,7 +11,7 @@ public class Player {
         private int points;
         private PrintWriter output;
         private BufferedReader in;
-        private ServerProtocol playerThread;
+       // private ServerProtocol playerThread;
         
         Player(String playerName, PrintWriter output, BufferedReader in)  {
                 this.playerName = playerName;
