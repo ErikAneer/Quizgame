@@ -1,34 +1,31 @@
 
-
-
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ServerMain {
 
     public static void main(String[] args) throws IOException {
-        
-            System.out.println("Server up and running.");
-            ServerSocket serverSocket = new ServerSocket(55555);
-            ActivePlayers activePlayers = new ActivePlayers();
-            
-            while (true) {
-                
-                      try {
-                                Socket socket = serverSocket.accept();
-                                System.out.println("Connection1");
-                                
-                                Server server = new Server(socket, activePlayers);
-                                server.start();
-                                
-                                System.out.println("Connection 2");
-                                
-                                
 
-                     }catch (IOException e){
-                                e.getMessage();
-                    }
+
+        System.out.println("Server up and running.");
+        ServerSocket serverSocket = new ServerSocket(55555);
+
+        while (true) {
+
+            Game game = new Game();
+            try {
+
+                Socket socketToPlayerOne = serverSocket.accept();
+                Socket socketToPlayerTwo = serverSocket.accept();
+                Server server = new Server(socketToPlayerOne, game, socketToPlayerTwo);
+                server.start();
+                System.out.println("Server started");
+
+            }catch (IOException e){
+                e.getMessage();
             }
+        }
     }
 }
