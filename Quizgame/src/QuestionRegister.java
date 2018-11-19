@@ -57,6 +57,39 @@ public class QuestionRegister {
         return artQuestions;
     }
 
+    public ArrayList<Question> getAllCarQuestions(){
+
+        ArrayList<Question> artQuestions = new ArrayList<>();
+        for (Question q: listOfAllQuestions) {
+            if(q.category == Question.enumCategory.carQuestions){
+                artQuestions.add(q);
+            }
+        }
+        return artQuestions;
+    }
+
+    public ArrayList<Question> getAllCultureQuestions(){
+
+        ArrayList<Question> artQuestions = new ArrayList<>();
+        for (Question q: listOfAllQuestions) {
+            if(q.category == Question.enumCategory.cultureQuestions){
+                artQuestions.add(q);
+            }
+        }
+        return artQuestions;
+    }
+
+    public ArrayList<Question> getAllGeographyQuestions(){
+
+        ArrayList<Question> artQuestions = new ArrayList<>();
+        for (Question q: listOfAllQuestions) {
+            if(q.category == Question.enumCategory.geographyQuestions){
+                artQuestions.add(q);
+            }
+        }
+        return artQuestions;
+    }
+
     public ArrayList<String> listOfAllCategorys(){
         ArrayList<String> allCategorys = new ArrayList<>();
         allCategorys.add(Question.enumCategory.artQuestions.toString());
@@ -68,6 +101,15 @@ public class QuestionRegister {
 
     public String getArtQuestion(Question questions){
        return questions.getQuestionAndAswers();
+    }
+    public String getCarQuestion(Question questions){
+        return questions.getQuestionAndAswers();
+    }
+    public String getCultureQuestion(Question questions){
+        return questions.getQuestionAndAswers();
+    }
+    public String getGeographyQuestion(Question questions){
+        return questions.getQuestionAndAswers();
     }
 
 
