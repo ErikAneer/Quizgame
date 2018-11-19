@@ -1,8 +1,3 @@
-
-
-
-
-
 import java.net.UnknownHostException;
 
 public class ClientMain {
