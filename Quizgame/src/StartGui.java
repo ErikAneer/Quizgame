@@ -205,9 +205,9 @@ public class StartGui extends Application {
         
  }
     public static void main(String[] args) throws UnknownHostException {
-       
+        
        launch(args);
-         
-    }
+       
+         }
     
 }
