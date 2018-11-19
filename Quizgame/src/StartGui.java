@@ -204,10 +204,6 @@ public class StartGui extends Application {
         window.setScene(scene);
         
  }
-    
-     
-   
-   
     public static void main(String[] args) throws UnknownHostException {
        
        launch(args);
