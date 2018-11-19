@@ -30,9 +30,33 @@ public class Question {
 
     public boolean checkIfAnsweIsCorrect(String answer){
         if(answer.equalsIgnoreCase(this.CORRECT_ANSWER))
-            return true;
+            return true; // kalla på metod addPoints. Finns sån metod?
         else
             return false;
+    }
+
+    public String getQuestionOne() {
+        return questionOne;
+    }
+
+    public String getAnswerOne() {
+        return answerOne;
+    }
+
+    public String getAnswerTwo() {
+        return answerTwo;
+    }
+
+    public String getAnswerThree() {
+        return answerThree;
+    }
+
+    public String getAnswerFour() {
+        return answerFour;
+    }
+
+    public String getQuestionAndAswers(){
+        return questionOne + "\n" + answerOne + "\n" + answerTwo + "\n" + answerThree + "\n" + answerFour;
     }
 
 }

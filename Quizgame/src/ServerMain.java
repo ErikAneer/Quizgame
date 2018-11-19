@@ -2,10 +2,12 @@
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ServerMain {
 
     public static void main(String[] args) throws IOException {
+
 
         System.out.println("Server up and running.");
         ServerSocket serverSocket = new ServerSocket(55555);
@@ -21,7 +23,7 @@ public class ServerMain {
                 server.start();
                 System.out.println("Server started");
 
-            } catch (IOException e) {
+            }catch (IOException e){
                 e.getMessage();
             }
         }
