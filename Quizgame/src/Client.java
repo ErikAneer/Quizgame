@@ -3,11 +3,23 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-public class Client {
+public class Client extends Application  {
 
     InetAddress ipAdress = InetAddress.getLocalHost();
+    
+    Stage window;
 
+    @Override
+
+    public void start(Stage primaryStage) throws UnknownHostException {
+
+        window=primaryStage;
+
+
+    }
     public Client() throws UnknownHostException{
 
 
@@ -18,70 +30,48 @@ public class Client {
             Scanner scan = new Scanner(System.in);
             String messageFromClient;
             String messageFromServer;
+            
+            //        window.setScene(new StartScene); // denna scen ska fråga efter spelar namn och skicka svaret till servern.
 
 
             while(true){
                 messageFromServer = (String) objectInputStream.readObject();
-                System.out.println(messageFromServer);
-                if(messageFromServer.equalsIgnoreCase("Väntar på kategori från motståndare")){
-                    messageFromClient = "";
-                    objectOutputStream.writeObject(messageFromClient);
-                    messageFromServer = (String) objectInputStream.readObject();
-                    System.out.println(messageFromServer);
-                    //Kalla på metod för att visa "wait-scene".
-                }
-                if (messageFromServer.substring(0, 1).trim().equalsIgnoreCase("1")) { // Skapa välja kategori.
-                String[] input = messageFromServer.split(" ");
-                String title = input[0];
-                /*
-                question.setText(input[0]);
-                alternativ1.setText(input[1]);
-                alternativ2.setText(input[2]);
-                alternativ3.setText(input[3]);
-                alternativ4.setText(input[4]);
-                alternativ5.setText(input[5]);
-                alternativ6.setText(input[6]);
-                primaryStage.setScene(???); //in med scen för välja kategori.
-                primaryStage.show();
-                */
-                }
-                if (messageFromServer.substring(0, 1).trim().equalsIgnoreCase("2")) { // Skapa fråga
-                String[] input = messageFromServer.split(" ");
-                String title = input[0];
-                /*
-                question.setText(input[0]);
-                alternativ1.setText(input[1]);
-                alternativ2.setText(input[2]);
-                alternativ3.setText(input[3]);
-                alternativ4.setText(input[4]);
-                primaryStage.setScene(???); //in med scen för välja kategori.
-                primaryStage.show();
-                */
-                }
                 
-                if (messageFromServer.substring(0, 1).trim().equalsIgnoreCase("3")) { // Skapa scen mellan ronder
-                String[] input = messageFromServer.split(" ");
-                String title = input[0];
-                /*
-                question.setText(input[0]);
-                alternativ1.setText(input[1]); // här ska vi visa poäng för Spelare 1
-                alternativ2.setText(input[2]); här ska vi visa poäng för Spelare 2
-                primaryStage.setScene(???); //in med scen för visa resultat mellan ronder.
-                primaryStage.show();
-                */
-                }
-                if (messageFromServer.substring(0, 1).trim().equalsIgnoreCase("4")) { // Skapa scen spel klart.
-                String[] input = messageFromServer.split(" ");
-                String title = input[0];
-                /*
-                question.setText(input[0]);
-                alternativ1.setText(input[1]); // här ska vi visa total poäng för Spelare 1
-                alternativ2.setText(input[2]); här ska vi visa total poäng för Spelare 2
-                alternativ3.setText(input[3]); här ska vi visa vem som vann.
-                primaryStage.setScene(???); //in med scen för visa resultat mellan ronder.
-                primaryStage.show();
-                */
-                }
+                        if(messageFromServer.equalsIgnoreCase("Väntar på kategori från motståndare")){
+            //                    new WaitGui(messageFromServer);
+                                messageFromClient = "";
+                                objectOutputStream.writeObject(messageFromClient);
+
+                        }
+                        if (messageFromServer.substring(0, 1).trim().equalsIgnoreCase("1")) { // Skapa välja kategori.
+                                    /*
+                                    new ChooseCategoryGui(objectOutputStream, messageFromServer); // OBS! Splitta inkommande sträng i GUI på underscore! 
+                                    primaryStage.setScene(ChooseCategoryGUI);
+                                    primaryStage.show();
+                                    */
+                        }
+                        if (messageFromServer.substring(0, 1).trim().equalsIgnoreCase("2")) { // Skapa fråga
+                                    /*
+                                    new Questiongui(objectOutputStream, messageFromServer);
+                                    primaryStage.setScene(Questiongui); 
+                                    primaryStage.show();
+                                    */
+                        }
+
+                        if (messageFromServer.substring(0, 1).trim().equalsIgnoreCase("3")) { // Skapa scen mellan ronder            
+                                    /*
+                                    new WaitBetweenRoundsGui(messageFromServer);                                   
+                                    primaryStage.setScene(WaitBetweenRoundsGui); 
+                                    primaryStage.show();
+                                    */
+                        }
+                        if (messageFromServer.substring(0, 1).trim().equalsIgnoreCase("4")) { // Skapa scen spel klart.                    
+                                    /*
+                                    new ResultGui(objectOutputStream, messageFromServer);
+                                    primaryStage.setScene(ResultGui); 
+                                    primaryStage.show();
+                                    */
+                        }
                 
                 messageFromClient = scan.nextLine();
                 objectOutputStream.writeObject(messageFromClient);
