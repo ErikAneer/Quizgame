@@ -17,10 +17,13 @@ import javafx.stage.Stage;
 // Startpage
 // Register username and connect to server
 
-public class Startscene extends Application {
+public class Startscene {
 
-    @Override
-    public void start(Stage primaryStage) {
+    private Stage stage;
+
+    public Startscene(Stage primaryStage){
+        this.stage = primaryStage;
+
         // Components and ids
         Button okButton = new Button("Play!");
         okButton.setId("okButtonId");
@@ -64,14 +67,10 @@ public class Startscene extends Application {
         scene.getStylesheets().add(this.getClass().getResource("Quizstyling.css").toExternalForm());
 
         // Stage
-        primaryStage.setTitle("Quiz Game!");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setTitle("Quiz Game!");
+        stage.setScene(scene);
+        stage.show();
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 
 }
