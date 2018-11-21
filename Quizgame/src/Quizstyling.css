@@ -1,0 +1,84 @@
+.root {
+    -fx-background-color: #fffafa;
+    -fx-font-family: courier;
+
+}
+
+.button {
+    -fx-background-color: #add8e6;
+    -fx-border-radius: 8;
+}
+
+.button:hover {
+    -fx-border-color: #ffd700;
+    -fx-background-color: #f0fff0;
+}
+
+#titleId {
+    -fx-font-size: 45px;
+    -fx-padding: 23;
+    -fx-font-weight: bold;
+}
+
+#userRequestId {
+
+}
+
+#userNameId {
+
+}
+
+#okButtonId {
+    -fx-padding: 13;
+    -fx-background-color:  #ffd700;
+}
+
+#waitId {
+    -fx-font-size: 15px;
+}
+
+
+#questionId {
+    -fx-padding: 23;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#categoriesId {
+    -fx-padding: 23;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#emptyId {
+    -fx-padding: 8;
+}
+
+#roundId {
+    -fx-padding: 23;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#bContinue {
+    -fx-padding: 23;
+    -fx-background-color:  #ffd700;
+}
+
+#resultId {
+    -fx-padding: 23;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#newGameId {
+    -fx-padding: 10;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
+
+#exitId {
+    -fx-padding: 10;
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+}
